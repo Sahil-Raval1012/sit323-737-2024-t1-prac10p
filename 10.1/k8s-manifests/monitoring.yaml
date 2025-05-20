@@ -1,0 +1,13 @@
+apiVersion: monitoring.googleapis.com/v1
+kind: PodMonitoring
+metadata:
+  name: task-api-monitoring
+  namespace: task-manager
+spec:
+  selector:
+    matchLabels:
+      app: task-api
+  endpoints:
+  - port: 3000
+    interval: 30s
+    path: "/metrics"
